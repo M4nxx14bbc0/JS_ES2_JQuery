@@ -6,27 +6,61 @@
         <h1>JS ES 3</h1>
         <h2>static HTML page: exercise 1 but with libraries</h2>
 
-        <div>div 1</div> 
+        <div>div 1</div>
         <div id="div1">Non premere il bottone!</div>
         <button id="btn1">CLICCAMI</button>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
             //var button = document.getElementsByTagName("div");    Si puo fare cosi oppure
-            document.getElementById("div1").innerHTML = "Ciao";
-
+            //document.getElementById("div1").innerHTML = "Ciao";
             // Ci sono due metodi
-
+            var color = true;
             $("#div1").html("Ciao ma in JQuery");
 
             console.log($("div1"));   // oggetto singolo : prende il div con tag "#div1";
             console.log($("div"));    // prende tutti gli elementi e gli unisce in un obj (length : n)
             
             $("#btn1").click(function(){
-                $("#div1").attr("style", "background-color: rgb(100,100,100)");
-            })
+                if(color){
+                    $("#div1").attr("style", "background-color: rgb(200,100,100)");
+                    color = false;
+                } else {
+                    $("#div1").removeAttr("style");
+                    color = true;
+                }
+                $("#div1").html("Ti avevo detto di non premerlo, maledetto mona");
+            });
             /*
-            $("#btn1").on("click", function());   
-            $("#btn1").click(function(){});*/
+            $("#btn1").on("click", function());    invoca un metodo, specifica il tipo di metodo e definisce il nome della funzione
+            $("#btn1").click(function(){});        invoca una funzione click e specifica la definizione dell'oggetto (associa alla root)
+            */
+            /*
+            Uno dei motivi che alcuni piacciono JS
+            è perché si può creare con JQuery
+            obj che non esistono.
+
+            E ADDIRITTURA INSERIRLI NEL CODICE HTML!!!
+
+             Esempio :
+            */
+            var h3 = $("<h3>Aggiunto un titolo H3</h3>");
+            $("body").append(h3);
+            /*
+            Così possiamo anche inserire elementi nel codice, attraverso oggetti
+            es:
+                $("body").append($("<button id="btn1">CLICCAMI</button>"));
+            */
+            $("body").append($("<button id='btn1'>CLICCAMI</button>"))
+            .click(function(){
+                if(color){
+                    $("#div1").attr("style", "background-color: rgb(200,100,100)");
+                    color = false;
+                } else {
+                    $("#div1").removeAttr("style");
+                    color = true;
+                }
+                $("#div1").html("Ti avevo detto di non premerlo, maledetto mona");
+            })
         </script>
     </body>
 </html>
