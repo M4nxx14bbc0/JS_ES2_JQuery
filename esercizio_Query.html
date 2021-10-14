@@ -5,9 +5,10 @@
     <body>
         <h1>JS ES 3</h1>
         <h2>static HTML page: exercise 1 but with libraries</h2>
-        
+
+        <div>div 1</div> 
         <div id="div1">Non premere il bottone!</div>
-        <button>CLICCAMI</button>
+        <button id="btn1">CLICCAMI</button>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
             //var button = document.getElementsByTagName("div");    Si puo fare cosi oppure
@@ -16,6 +17,16 @@
             // Ci sono due metodi
 
             $("#div1").html("Ciao ma in JQuery");
+
+            console.log($("div1"));   // oggetto singolo : prende il div con tag "#div1";
+            console.log($("div"));    // prende tutti gli elementi e gli unisce in un obj (length : n)
+            
+            $("#btn1").click(function(){
+                $("#div1").attr("style", "background-color: rgb(100,100,100)");
+            })
+            /*
+            $("#btn1").on("click", function());   
+            $("#btn1").click(function(){});*/
         </script>
     </body>
 </html>
