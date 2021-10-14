@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>JS_ES 3</title>
+    </head>
+    <body>
+        <h1>JS ES 3</h1>
+        <h2>static HTML page: exercise 1 but with libraries</h2>
+        
+        <div id="div1">Non premere il bottone!</div>
+        <button>CLICCAMI</button>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            //var button = document.getElementsByTagName("div");    Si puo fare cosi oppure
+            document.getElementById("div1").innerHTML = "Ciao";
+
+            // Ci sono due metodi
+
+            $("#div1").html("Ciao ma in JQuery");
+        </script>
+    </body>
+</html>
